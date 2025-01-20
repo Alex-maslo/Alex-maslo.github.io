@@ -1,19 +1,24 @@
 import { FC } from "react";
-import { IUser } from "../models/IUsersBase.ts";
+import { IUser } from "../models/IUser.ts";
+import { Link, useNavigate } from "react-router-dom";
 
-type UserProps = {
+type UserTypeProps = {
   user: IUser;
 };
-const User: FC<UserProps> = ({ user }) => {
+const User: FC<UserTypeProps> = ({ user }) => {
+  const navigate = useNavigate();
+  const handleOnClick = () => {
+    navigate("details", { state: user });
+  };
   return (
-    <div className="flex flex-col gap-4 border border-green-400 p-3">
-      <h2 className="font-semibold text-white p-2 bg-red-500">
-        {user.firstName} {user.lastName}
-      </h2>
-      <p>
-        {user.age} years, {user.gender}
-      </p>
-      <img src={user.image} alt="" />
+    <div>
+      <Link state={user} to={"details"}>
+        {user.name}
+      </Link>
+
+      <button onClick={handleOnClick} className="p-2 bg-amber-400">
+        click
+      </button>
     </div>
   );
 };

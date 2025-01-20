@@ -2,16 +2,18 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout.tsx";
 import UsersPage from "../pages/UsersPage.tsx";
 import PostsPage from "../pages/PostsPage.tsx";
-import RecipesPage from "../pages/RecipesPage.tsx";
+import HomePage from "../pages/HomePage.tsx";
+import SingleUsersDetailsPage from "../components/SingleUsersDetailsPage.tsx";
 
 export const routers = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
     children: [
+      { index: true, element: <HomePage /> },
       { path: "users", element: <UsersPage /> },
+      { path: "users/details", element: <SingleUsersDetailsPage /> },
       { path: "posts", element: <PostsPage /> },
-      { path: "recipes", element: <RecipesPage /> },
     ],
   },
 ]);

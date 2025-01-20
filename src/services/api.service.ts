@@ -1,4 +1,9 @@
-export const getData = async (path: string) => {
-  const response = await fetch(`${import.meta.env.VITE_DUMMY_BASE}${path}`);
-  return response.json();
+import { IUser } from "../models/IUser.ts";
+
+export const userService = {
+  getUsers: async (): Promise<IUser[]> => {
+    return await fetch("https://jsonplaceholder.typicode.com/users").then(
+      (value) => value.json(),
+    );
+  },
 };
