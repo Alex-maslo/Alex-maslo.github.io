@@ -11,7 +11,16 @@ export const routers = createBrowserRouter([
     element: <MainLayout />,
     children: [
       { index: true, element: <HomePage /> },
-      { path: "users", element: <UsersPage /> },
+      {
+        path: "users",
+        element: <UsersPage />,
+        children: [
+          {
+            path: "posts/:userId",
+            element: <PostsPage />,
+          },
+        ],
+      },
       { path: "users/details", element: <SingleUsersDetailsPage /> },
       { path: "posts", element: <PostsPage /> },
     ],

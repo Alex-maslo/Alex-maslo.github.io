@@ -7,11 +7,13 @@ type UserTypeProps = {
 };
 const User: FC<UserTypeProps> = ({ user }) => {
   const navigate = useNavigate();
+
   const handleOnClick = () => {
-    navigate("details", { state: user });
+    navigate(`posts/${user.id}`, { state: user });
   };
+
   return (
-    <div>
+    <div className=" grid grid-cols-2 gap-3 border border-amber-500 p-2">
       <Link state={user} to={"details"}>
         {user.name}
       </Link>

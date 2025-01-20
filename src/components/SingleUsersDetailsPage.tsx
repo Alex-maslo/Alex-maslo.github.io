@@ -5,7 +5,7 @@ const SingleUsersDetailsPage = () => {
   const { state } = useLocation();
 
   const user = state as IUser;
-
+  console.log(user);
   return <div>{user.email}</div>;
 };
 
