@@ -1,11 +1,5 @@
-import Menu from "./components/Menu.tsx";
-
 const App = () => {
-  return (
-    <div className="p-2">
-      <Menu />
-    </div>
-  );
+  return <div></div>;
 };
 
 export default App;
