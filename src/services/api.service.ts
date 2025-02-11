@@ -1,11 +1,5 @@
-export const url = "https://dummyjson.com";
-
-export const getAllUsers = async () => {
-  const response = await fetch(`${url}/users?limit=0`);
-  return response.json();
-};
-
-export const getPostsUser = async (userId: number) => {
-  const response = await fetch(`${url}/users/${userId}/posts`);
+const baseUrl = "http://185.69.152.209/carsAPI/v1";
+export const getCars = async () => {
+  const response = await fetch(`${baseUrl}/cars`);
   return response.json();
 };
